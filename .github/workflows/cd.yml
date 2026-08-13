@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build docker image
-        run: docker build -t ghcr.io/amirkhaidir/notely:latest
+        run: docker build -t ghcr.io/amirkhaidir/notely:latest .
 
       - name: Push image to Github container registry
         run: docker push ghcr.io/amirkhaidir/notely:latest

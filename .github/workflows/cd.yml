@@ -18,5 +18,18 @@ jobs:
         with:
           go-version: "1.26.0"
 
-      - name: build app
+      - name: Build app
         run: scripts/buildprod.sh
+
+      - name: Login to Github container registry
+        user: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build docker image
+        run: docker build -t ghcr.io/amirkhaidir/notely:latest
+
+      - name: Push image to Github container registry
+        run: docker push ghcr.io/amirkhaidir/notely:latest

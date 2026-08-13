@@ -45,7 +45,7 @@ Expecting: (%v, %v)
 Actual: (%v, %v)
 Fail
 			`, tc.headers, tc.expectedApiKey, tc.err, apikey, err)
-			t.Fatalf(failTc)
+			t.Fatal(failTc)
 		} else {
 			passedCount++
 			fmt.Printf(`---------------------------------

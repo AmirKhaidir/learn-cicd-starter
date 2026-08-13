@@ -22,7 +22,7 @@ jobs:
         run: scripts/buildprod.sh
 
       - name: Login to Github container registry
-        user: docker/login-action@v4
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
